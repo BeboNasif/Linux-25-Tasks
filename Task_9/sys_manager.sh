@@ -79,5 +79,5 @@ fi;;
 break;;
 *) echo "Invalid choice!";;
 esac
-echo ""
+echo -e "\n<=========================================>\n"
 done

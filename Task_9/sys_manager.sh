@@ -30,8 +30,12 @@ if [[ -e $file ]]
 then
 echo -n "Enter permissions:  "
 read perm
-chmod "$perm" "$file"
+if chmod "$perm" "$file" 
+then
 echo "Permissions updated!"
+else
+echo "Failed to update permissions! Please enter a valid permission."
+fi
 else
 echo "File not found!"
 fi;;
@@ -58,7 +62,8 @@ fi;;
 5)
 echo -n "Enter compressed file name: " 
 read file
-if [[ -f $file ]]; then
+if [[ -f $file ]]
+then
 echo "Extracting..."
 case $file in
 *.tar.gz) tar -xzf "$file" 
